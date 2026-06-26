@@ -1,16 +1,9 @@
 "use client";
 
+import { Navbar } from "@/components/navbar";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-
-const avatars = [
-  "/professional-headshot-1.png",
-  "/professional-headshot-2.png",
-  "/professional-headshot-3.png",
-  "/professional-headshot-4.png",
-  "/professional-headshot-5.png",
-];
+import { motion } from "motion/react";
 
 const textRevealVariants = {
   hidden: { y: "100%" },
@@ -24,7 +17,7 @@ const textRevealVariants = {
   }),
 };
 
-export function Hero() {
+function IntegrationsHero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden">
       {/* Background gradient */}
@@ -43,7 +36,7 @@ export function Hero() {
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 pulse-glow" />
           <span className="text-sm text-zinc-600 dark:text-zinc-400">
-            Coming Soon
+            Integrations
           </span>
         </motion.div>
 
@@ -60,7 +53,7 @@ export function Hero() {
               animate="visible"
               custom={0}
             >
-              Connected intelligence.
+              Fully normalized.
             </motion.span>
           </span>
           <span className="block overflow-hidden">
@@ -71,7 +64,7 @@ export function Hero() {
               animate="visible"
               custom={1}
             >
-              One solution.
+              Completely automated.
             </motion.span>
           </span>
         </h1>
@@ -83,8 +76,9 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          The modern platform for small businesses who grow fast. Built for
-          scale, designed for speed. Your whole operation, visible in one place.
+          Each integration is purpose-built for that POS system&apos;s data
+          model — not a generic connector. You get the right fields, the right
+          labels, the right structure.
         </motion.p>
 
         {/* CTAs */}
@@ -94,55 +88,26 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
         >
-          <Button
-            size="lg"
-            className="shimmer-btn bg-zinc-950 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium shadow-lg shadow-zinc-950/10 dark:shadow-white/10"
-          >
-            Start Building
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="rounded-full px-8 h-12 text-base font-medium border-zinc-300 text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 hover:border-zinc-400 dark:border-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-900 dark:hover:text-white dark:hover:border-zinc-700 bg-transparent"
-          >
-            View Demo
-          </Button>
-        </motion.div>
-
-        {/* Social Proof */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
-          className="flex flex-col items-center gap-4"
-        >
-          <div className="flex items-center -space-x-3">
-            {avatars.map((avatar, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.5, x: -20 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-                className="relative"
-              >
-                <img
-                  src={avatar || "/placeholder.svg"}
-                  alt=""
-                  className="w-10 h-10 rounded-full border-2 border-white dark:border-zinc-950 object-cover"
-                />
-              </motion.div>
-            ))}
-          </div>
-          <p className="text-sm text-zinc-500">
-            Trusted by{" "}
-            <span className="text-zinc-700 dark:text-zinc-300 font-medium">
-              2,000+
-            </span>{" "}
-            teams worldwide
-          </p>
+          <a href="#articles">
+            <Button
+              size="lg"
+              className="shimmer-btn bg-zinc-950 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium shadow-lg shadow-zinc-950/10 dark:shadow-white/10"
+            >
+              See all integrations
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>
+  );
+}
+
+export default function IntegrationsPage() {
+  return (
+    <main className="min-h-screen bg-white dark:bg-zinc-950">
+      <Navbar />
+      <IntegrationsHero />
+    </main>
   );
 }

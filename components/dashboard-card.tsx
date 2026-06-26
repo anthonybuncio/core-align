@@ -58,7 +58,7 @@ export default function DashboardCard({ large = false }: { large?: boolean }) {
           />
         </div>
         <span
-          className="text-xs font-medium tracking-wide"
+          className="text-xs tracking-wide"
           style={{ ...displayFont, color: "var(--text-muted)" }}
         >
           My CoreAlign Dashboard
@@ -104,7 +104,7 @@ export default function DashboardCard({ large = false }: { large?: boolean }) {
               }}
             >
               <span
-                className="w-5 h-5 rounded shrink-0 flex items-center justify-center text-[9px] font-bold"
+                className="w-5 h-5 rounded shrink-0 flex items-center justify-center text-[9px]"
                 style={{
                   background: ["#FF6340", "#8B5CF6", "#00C8BC", "#F59E0B"][i],
                   color: "#fff",
@@ -172,7 +172,7 @@ export default function DashboardCard({ large = false }: { large?: boolean }) {
                   {s.label}
                 </p>
                 <p
-                  className="text-sm font-bold leading-none mb-1"
+                  className="text-sm leading-none mb-1"
                   style={{ ...displayFont, color: "var(--text)" }}
                 >
                   {s.val}
@@ -197,7 +197,7 @@ export default function DashboardCard({ large = false }: { large?: boolean }) {
           >
             <div className="flex items-center justify-between mb-3">
               <p
-                className="text-[10px] font-semibold"
+                className="text-[10px]"
                 style={{ ...displayFont, color: "var(--text-muted)" }}
               >
                 Weekly Revenue · Corner Store
@@ -274,7 +274,7 @@ export default function DashboardCard({ large = false }: { large?: boolean }) {
                 </div>
                 <div className="flex items-center gap-3">
                   <span
-                    className="text-[10px] font-semibold"
+                    className="text-[10px]"
                     style={{ color: "var(--text)", ...displayFont }}
                   >
                     {t.amt}

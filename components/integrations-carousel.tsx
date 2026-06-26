@@ -14,6 +14,7 @@ import {
   ChevronRight,
   Clock3,
   ExternalLink,
+  Grid2X2Plus,
   ShieldCheck,
   Star,
 } from "lucide-react";
@@ -136,13 +137,13 @@ export default function IntegrationsCarousel() {
           className="mb-12 text-center"
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-100 px-4 py-2 dark:border-zinc-800 dark:bg-zinc-900">
-            <Star
-              className="h-3.5 w-3.5 text-emerald-500"
-              fill="currentColor"
-              strokeWidth={0}
+            <Grid2X2Plus
+              className="h-3.5 w-3.5 text-zinc-950"
+              // fill="currentColor"
+              strokeWidth={2}
             />
             <span className="text-sm text-zinc-600 dark:text-zinc-400">
-              Popular Integrations
+              Supported Systems
             </span>
           </div>
           <h2
@@ -290,7 +291,7 @@ export default function IntegrationsCarousel() {
             className="shimmer-btn rounded-full bg-zinc-950 px-6 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
             asChild
           >
-            <a href="#">
+            <a href="/integrations">
               Browse all integrations
               <ArrowRight className="ml-2 h-4 w-4" />
             </a>

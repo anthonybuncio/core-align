@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { motion, useInView } from "framer-motion"
-import { useRef } from "react"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
+import { motion, useInView } from "framer-motion";
+import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 
 export function FinalCTA() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <section className="py-24 px-4">
@@ -25,7 +25,8 @@ export function FinalCTA() {
           Ready to ship faster?
         </h2>
         <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">
-          Join thousands of teams already building with Apex. Start free, no credit card required.
+          Join thousands of teams already building with Core Align. Start free,
+          no credit card required.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -45,8 +46,10 @@ export function FinalCTA() {
           </Button>
         </div>
 
-        <p className="mt-8 text-sm text-zinc-500">Free forever for individuals. Team plans start at $29/month.</p>
+        <p className="mt-8 text-sm text-zinc-500">
+          Free forever for individuals. Team plans start at $29/month.
+        </p>
       </motion.div>
     </section>
-  )
+  );
 }
