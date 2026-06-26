@@ -160,10 +160,10 @@ function BlogHero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-4 pt-24 pb-16 overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-linear-to-b from-zinc-950 via-zinc-950 to-zinc-900 pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-b from-white via-white to-zinc-100 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900 pointer-events-none" />
 
       {/* Subtle radial glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-200 h-150 bg-zinc-800/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-200 h-150 bg-zinc-300/30 dark:bg-zinc-800/20 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto text-center">
         {/* Badge */}
@@ -171,15 +171,17 @@ function BlogHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 border border-zinc-800 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-emerald-500 pulse-glow" />
-          <span className="text-sm text-zinc-400">Trusted By 100+ Brands</span>
+          <span className="text-sm text-zinc-600 dark:text-zinc-400">
+            Trusted By 100+ Brands
+          </span>
         </motion.div>
 
         {/* Headline with text mask animation */}
         <h1
-          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-6"
+          className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-zinc-950 dark:text-white mb-6"
           style={{ fontFamily: "var(--font-cal-sans), sans-serif" }}
         >
           <span className="block overflow-hidden">
@@ -195,7 +197,7 @@ function BlogHero() {
           </span>
           <span className="block overflow-hidden">
             <motion.span
-              className="block text-zinc-500"
+              className="block text-zinc-400 dark:text-zinc-500"
               variants={textRevealVariants}
               initial="hidden"
               animate="visible"
@@ -211,7 +213,7 @@ function BlogHero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-lg sm:text-xl text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           The modern platform for small businesses who grow fast. Built for
           scale, designed for speed. Your whole operation, visible in one place.
@@ -227,7 +229,7 @@ function BlogHero() {
           <a href="#articles">
             <Button
               size="lg"
-              className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium shadow-lg shadow-white/10"
+              className="shimmer-btn bg-zinc-950 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200 rounded-full px-8 h-12 text-base font-medium shadow-lg shadow-zinc-950/10 dark:shadow-white/10"
             >
               View Blog
               <ArrowRight className="ml-2 w-4 h-4" />
@@ -241,7 +243,7 @@ function BlogHero() {
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-zinc-950">
+    <main className="min-h-screen bg-white dark:bg-zinc-950">
       <Navbar />
 
       {/* Header */}
@@ -297,15 +299,15 @@ export default function BlogPage() {
             variants={fadeUp}
             className="grid items-center gap-10 lg:grid-cols-2"
           >
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-zinc-800">
+            <div className="relative aspect-4/3 overflow-hidden rounded-2xl border border-zinc-200 dark:border-zinc-800">
               <img
                 src={featuredPost.imageUrl}
                 alt={featuredPost.title}
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-white/60 dark:from-zinc-950/60 to-transparent" />
               <div className="absolute top-4 left-4">
-                <span className="rounded-full bg-white px-3 py-1 text-xs font-medium text-zinc-950">
+                <span className="rounded-full bg-zinc-950 dark:bg-white px-3 py-1 text-xs font-medium text-white dark:text-zinc-950">
                   Featured
                 </span>
               </div>
@@ -313,15 +315,15 @@ export default function BlogPage() {
 
             <div className="space-y-6">
               <div>
-                <span className="mb-3 inline-block rounded-full border border-zinc-800 bg-zinc-900 px-3 py-1 text-xs text-zinc-400">
+                <span className="mb-3 inline-block rounded-full border border-zinc-200 bg-zinc-100 px-3 py-1 text-xs text-zinc-600 dark:border-zinc-800 dark:bg-zinc-900 dark:text-zinc-400">
                   {featuredPost.category}
                 </span>
-                <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
+                <h2 className="text-2xl font-semibold tracking-tight text-zinc-950 dark:text-white sm:text-3xl">
                   {featuredPost.title}
                 </h2>
               </div>
 
-              <p className="text-lg leading-relaxed text-zinc-400">
+              <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
                 {featuredPost.excerpt}
               </p>
 
@@ -330,10 +332,10 @@ export default function BlogPage() {
                   <img
                     src={featuredPost.author.avatar}
                     alt={featuredPost.author.name}
-                    className="h-11 w-11 rounded-full border border-zinc-800 object-cover"
+                    className="h-11 w-11 rounded-full border border-zinc-200 dark:border-zinc-800 object-cover"
                   />
                   <div>
-                    <p className="text-sm font-medium text-white">
+                    <p className="text-sm font-medium text-zinc-950 dark:text-white">
                       {featuredPost.author.name}
                     </p>
                     <p className="text-xs text-zinc-500">
@@ -352,7 +354,7 @@ export default function BlogPage() {
 
               <Button
                 size="lg"
-                className="shimmer-btn rounded-full bg-white px-6 text-zinc-950 hover:bg-zinc-200"
+                className="shimmer-btn rounded-full bg-zinc-950 px-6 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
                 asChild
               >
                 <a href="#">
@@ -372,10 +374,10 @@ export default function BlogPage() {
               variants={fadeUp}
               className="mb-8 flex items-center gap-4"
             >
-              <h3 className="text-xl font-semibold text-white">
+              <h3 className="text-xl font-semibold text-zinc-950 dark:text-white">
                 Editor&apos;s Picks
               </h3>
-              <div className="h-px grow bg-zinc-800" />
+              <div className="h-px grow bg-zinc-200 dark:bg-zinc-800" />
             </motion.div>
 
             <div className="grid gap-6 md:grid-cols-2">
@@ -387,7 +389,7 @@ export default function BlogPage() {
                   viewport={{ once: true, margin: "-80px" }}
                   variants={fadeUp}
                   transition={{ delay: index * 0.1 }}
-                  className="group overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900 transition-colors duration-300 hover:border-zinc-600"
+                  className="group overflow-hidden rounded-2xl border border-zinc-200 bg-white transition-colors duration-300 hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-zinc-600"
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <img
@@ -396,17 +398,17 @@ export default function BlogPage() {
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="rounded-full border border-zinc-800 bg-zinc-950/80 px-3 py-1 text-xs font-medium text-white">
+                      <span className="rounded-full border border-zinc-200 bg-white/80 px-3 py-1 text-xs font-medium text-zinc-950 dark:border-zinc-800 dark:bg-zinc-950/80 dark:text-white">
                         {post.category}
                       </span>
                     </div>
                   </div>
 
                   <div className="space-y-3 p-6">
-                    <h4 className="line-clamp-2 text-lg font-semibold text-white">
+                    <h4 className="line-clamp-2 text-lg font-semibold text-zinc-950 dark:text-white">
                       {post.title}
                     </h4>
-                    <p className="line-clamp-2 text-sm text-zinc-400">
+                    <p className="line-clamp-2 text-sm text-zinc-600 dark:text-zinc-400">
                       {post.excerpt}
                     </p>
 
@@ -415,15 +417,15 @@ export default function BlogPage() {
                         <img
                           src={post.author.avatar}
                           alt={post.author.name}
-                          className="h-7 w-7 rounded-full border border-zinc-800 object-cover"
+                          className="h-7 w-7 rounded-full border border-zinc-200 dark:border-zinc-800 object-cover"
                         />
-                        <span className="text-xs font-medium text-zinc-300">
+                        <span className="text-xs font-medium text-zinc-700 dark:text-zinc-300">
                           {post.author.name}
                         </span>
                       </div>
                       <a
                         href="#"
-                        className="inline-flex items-center gap-1 text-sm text-zinc-400 transition-colors hover:text-white"
+                        className="inline-flex items-center gap-1 text-sm text-zinc-600 transition-colors hover:text-zinc-950 dark:text-zinc-400 dark:hover:text-white"
                       >
                         Read
                         <ArrowRightIcon className="h-3.5 w-3.5" />
@@ -444,8 +446,10 @@ export default function BlogPage() {
               variants={fadeUp}
               className="mb-8 flex items-center gap-4"
             >
-              <h3 className="text-xl font-semibold text-white">Trending Now</h3>
-              <div className="h-px grow bg-zinc-800" />
+              <h3 className="text-xl font-semibold text-zinc-950 dark:text-white">
+                Trending Now
+              </h3>
+              <div className="h-px grow bg-zinc-200 dark:bg-zinc-800" />
             </motion.div>
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -457,7 +461,7 @@ export default function BlogPage() {
                   viewport={{ once: true, margin: "-80px" }}
                   variants={fadeUp}
                   transition={{ delay: index * 0.1 }}
-                  className="flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/50 transition-colors duration-300 hover:border-zinc-600"
+                  className="flex h-full flex-col overflow-hidden rounded-2xl border border-zinc-200 bg-white/50 transition-colors duration-300 hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-900/50 dark:hover:border-zinc-600"
                 >
                   <div className="relative aspect-video overflow-hidden">
                     <img
@@ -468,13 +472,13 @@ export default function BlogPage() {
                   </div>
 
                   <div className="flex grow flex-col p-5">
-                    <span className="mb-3 inline-block w-fit rounded-full bg-zinc-800 px-2.5 py-1 text-xs text-zinc-400">
+                    <span className="mb-3 inline-block w-fit rounded-full bg-zinc-200 px-2.5 py-1 text-xs text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
                       {post.category}
                     </span>
-                    <h4 className="mb-2 line-clamp-2 font-semibold text-white">
+                    <h4 className="mb-2 line-clamp-2 font-semibold text-zinc-950 dark:text-white">
                       {post.title}
                     </h4>
-                    <p className="mb-4 line-clamp-2 text-sm text-zinc-400">
+                    <p className="mb-4 line-clamp-2 text-sm text-zinc-600 dark:text-zinc-400">
                       {post.excerpt}
                     </p>
 
@@ -496,7 +500,7 @@ export default function BlogPage() {
           <Button
             variant="outline"
             size="lg"
-            className="gap-2 rounded-full border-zinc-800 bg-transparent text-zinc-300 hover:border-zinc-700 hover:bg-zinc-900 hover:text-white"
+            className="gap-2 rounded-full border-zinc-300 bg-transparent text-zinc-700 hover:border-zinc-400 hover:bg-zinc-100 hover:text-zinc-950 dark:border-zinc-800 dark:text-zinc-300 dark:hover:border-zinc-700 dark:hover:bg-zinc-900 dark:hover:text-white"
             asChild
           >
             <a href="#">

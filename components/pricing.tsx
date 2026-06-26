@@ -52,7 +52,7 @@ function BorderBeam() {
   return (
     <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
       <div
-        className="absolute w-24 h-24 bg-white/20 blur-xl border-beam"
+        className="absolute w-24 h-24 bg-zinc-950/20 dark:bg-white/20 blur-xl border-beam"
         style={{
           offsetPath: "rect(0 100% 100% 0 round 16px)",
         }}
@@ -76,27 +76,29 @@ export function Pricing() {
           className="text-center mb-12"
         >
           <h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl font-bold text-zinc-950 dark:text-white mb-4"
             style={{ fontFamily: "var(--font-geist-sans)" }}
           >
             Simple, transparent pricing
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto mb-8">
+          <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto mb-8">
             Start free, scale as you grow. No hidden fees, no surprises.
           </p>
 
           {/* Billing Toggle */}
-          <div className="inline-flex items-center p-1 rounded-full bg-zinc-900 border border-zinc-800">
+          <div className="inline-flex items-center p-1 rounded-full bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800">
             <button
               onClick={() => setBillingCycle("monthly")}
               className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                billingCycle === "monthly" ? "text-white" : "text-zinc-400"
+                billingCycle === "monthly"
+                  ? "text-zinc-950 dark:text-white"
+                  : "text-zinc-500 dark:text-zinc-400"
               }`}
             >
               {billingCycle === "monthly" && (
                 <motion.div
                   layoutId="billing-toggle"
-                  className="absolute inset-0 bg-zinc-800 rounded-full"
+                  className="absolute inset-0 bg-white dark:bg-zinc-800 rounded-full shadow-sm"
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 />
               )}
@@ -105,18 +107,20 @@ export function Pricing() {
             <button
               onClick={() => setBillingCycle("yearly")}
               className={`relative px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                billingCycle === "yearly" ? "text-white" : "text-zinc-400"
+                billingCycle === "yearly"
+                  ? "text-zinc-950 dark:text-white"
+                  : "text-zinc-500 dark:text-zinc-400"
               }`}
             >
               {billingCycle === "yearly" && (
                 <motion.div
                   layoutId="billing-toggle"
-                  className="absolute inset-0 bg-zinc-800 rounded-full"
+                  className="absolute inset-0 bg-white dark:bg-zinc-800 rounded-full shadow-sm"
                   transition={{ type: "spring", stiffness: 500, damping: 30 }}
                 />
               )}
               <span className="relative z-10">Yearly</span>
-              <span className="relative z-10 ml-2 px-2 py-0.5 text-xs bg-emerald-500/20 text-emerald-400 rounded-full">
+              <span className="relative z-10 ml-2 px-2 py-0.5 text-xs bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 rounded-full">
                 -20%
               </span>
             </button>
@@ -138,27 +142,27 @@ export function Pricing() {
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               className={`relative p-6 rounded-2xl border transition-all duration-300 hover:scale-[1.02] ${
                 plan.highlighted
-                  ? "bg-zinc-900 border-zinc-700"
-                  : "bg-zinc-900/50 border-zinc-800 hover:border-zinc-600"
+                  ? "bg-zinc-50 dark:bg-zinc-900 border-zinc-300 dark:border-zinc-700"
+                  : "bg-white dark:bg-zinc-900/50 border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600"
               }`}
             >
               {plan.highlighted && <BorderBeam />}
 
               {plan.highlighted && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-white text-zinc-950 text-xs font-medium rounded-full">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 text-xs font-medium rounded-full">
                   Most Popular
                 </div>
               )}
 
               <div className="mb-6">
-                <h3 className="text-xl font-semibold text-white mb-2">{plan.name}</h3>
-                <p className="text-zinc-400 text-sm">{plan.description}</p>
+                <h3 className="text-xl font-semibold text-zinc-950 dark:text-white mb-2">{plan.name}</h3>
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm">{plan.description}</p>
               </div>
 
               <div className="mb-6">
                 <div className="flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-white">${plan.price[billingCycle]}</span>
-                  {plan.price.monthly > 0 && <span className="text-zinc-400 text-sm">/month</span>}
+                  <span className="text-4xl font-bold text-zinc-950 dark:text-white">${plan.price[billingCycle]}</span>
+                  {plan.price.monthly > 0 && <span className="text-zinc-600 dark:text-zinc-400 text-sm">/month</span>}
                 </div>
                 {billingCycle === "yearly" && plan.price.yearly > 0 && (
                   <p className="text-xs text-zinc-500 mt-1">Billed annually (${plan.price.yearly * 12}/year)</p>
@@ -167,7 +171,7 @@ export function Pricing() {
 
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature) => (
-                  <li key={feature} className="flex items-center gap-3 text-sm text-zinc-300">
+                  <li key={feature} className="flex items-center gap-3 text-sm text-zinc-700 dark:text-zinc-300">
                     <Check className="w-4 h-4 text-emerald-500 shrink-0" strokeWidth={1.5} />
                     {feature}
                   </li>
@@ -177,8 +181,8 @@ export function Pricing() {
               <Button
                 className={`w-full rounded-full ${
                   plan.highlighted
-                    ? "shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200"
-                    : "bg-zinc-800 text-white hover:bg-zinc-700 border border-zinc-700"
+                    ? "shimmer-btn bg-zinc-950 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200"
+                    : "bg-zinc-100 text-zinc-950 hover:bg-zinc-200 border border-zinc-200 dark:bg-zinc-800 dark:text-white dark:hover:bg-zinc-700 dark:border-zinc-700"
                 }`}
               >
                 {plan.cta}

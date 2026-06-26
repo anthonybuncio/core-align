@@ -11,7 +11,7 @@ export function DashboardShowcase() {
   return (
     <section className="relative py-24 px-4 overflow-hidden">
       {/* Subtle radial glow behind the mockup, matches Hero's treatment */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-225 h-125 bg-emerald-500/6 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-225 h-125 bg-emerald-500/10 dark:bg-emerald-500/6 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative z-10 max-w-5xl mx-auto">
         <motion.div
@@ -21,12 +21,12 @@ export function DashboardShowcase() {
           className="text-center mb-16"
         >
           <h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl font-bold text-zinc-950 dark:text-white mb-4"
             style={{ fontFamily: "var(--font-cal-sans), sans-serif" }}
           >
             One dashboard, every brand
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
+          <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
             Revenue, transactions, and store status from every POS — synced live
             and laid out so your whole team reads from the same numbers.
           </p>

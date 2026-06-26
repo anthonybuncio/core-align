@@ -61,7 +61,7 @@ export default function DashboardCard({ large = false }: { large?: boolean }) {
           className="text-xs font-medium tracking-wide"
           style={{ ...displayFont, color: "var(--text-muted)" }}
         >
-          CoreAlign Dashboard
+          My CoreAlign Dashboard
         </span>
         <div className="flex items-center gap-1.5">
           <span

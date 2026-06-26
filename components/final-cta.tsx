@@ -19,19 +19,19 @@ export function FinalCTA() {
         className="max-w-4xl mx-auto text-center"
       >
         <h2
-          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight"
+          className="text-4xl sm:text-5xl lg:text-6xl font-bold text-zinc-950 dark:text-white mb-6 tracking-tight"
           style={{ fontFamily: "var(--font-cal-sans)" }}
         >
           Ready to ship faster?
         </h2>
-        <p className="text-lg sm:text-xl text-zinc-400 mb-10 max-w-2xl mx-auto">
+        <p className="text-lg sm:text-xl text-zinc-600 dark:text-zinc-400 mb-10 max-w-2xl mx-auto">
           Join thousands of teams already building with Apex. Start free, no credit card required.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
             size="lg"
-            className="shimmer-btn bg-white text-zinc-950 hover:bg-zinc-200 rounded-full px-8 h-14 text-base font-medium shadow-lg shadow-white/20"
+            className="shimmer-btn bg-zinc-950 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200 rounded-full px-8 h-14 text-base font-medium shadow-lg shadow-zinc-950/20 dark:shadow-white/20"
           >
             Get Started for Free
             <ArrowRight className="ml-2 w-5 h-5" />
@@ -39,7 +39,7 @@ export function FinalCTA() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full px-8 h-14 text-base font-medium border-zinc-800 text-zinc-300 hover:bg-zinc-900 hover:text-white hover:border-zinc-700 bg-transparent"
+            className="rounded-full px-8 h-14 text-base font-medium border-zinc-300 text-zinc-700 hover:bg-zinc-100 hover:text-zinc-950 hover:border-zinc-400 dark:border-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-900 dark:hover:text-white dark:hover:border-zinc-700 bg-transparent"
           >
             Talk to Sales
           </Button>

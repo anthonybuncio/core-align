@@ -40,7 +40,7 @@ function SystemStatus() {
       {dots.map((active, i) => (
         <motion.div
           key={i}
-          className={`w-2 h-2 rounded-full ${active ? "bg-emerald-500" : "bg-zinc-700"}`}
+          className={`w-2 h-2 rounded-full ${active ? "bg-emerald-500" : "bg-zinc-300 dark:bg-zinc-700"}`}
           animate={active ? { scale: [1, 1.2, 1] } : {}}
           transition={{
             duration: 1,
@@ -68,14 +68,14 @@ function KeyboardCommand() {
     <div className="flex items-center gap-1">
       <motion.kbd
         animate={pressed ? { scale: 0.95, y: 2 } : { scale: 1, y: 0 }}
-        className="px-2 py-1 text-xs bg-zinc-800 border border-zinc-700 rounded text-zinc-300 font-mono"
+        className="px-2 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-zinc-700 dark:text-zinc-300 font-mono"
       >
         ⌘
       </motion.kbd>
       <motion.kbd
         animate={pressed ? { scale: 0.95, y: 2 } : { scale: 1, y: 0 }}
         transition={{ delay: 0.05 }}
-        className="px-2 py-1 text-xs bg-zinc-800 border border-zinc-700 rounded text-zinc-300 font-mono"
+        className="px-2 py-1 text-xs bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded text-zinc-700 dark:text-zinc-300 font-mono"
       >
         K
       </motion.kbd>
@@ -103,11 +103,15 @@ function AnimatedChart() {
   }, "");
 
   return (
-    <svg ref={ref} viewBox="0 0 100 70" className="w-full h-24">
+    <svg
+      ref={ref}
+      viewBox="0 0 100 70"
+      className="w-full h-24 text-zinc-950 dark:text-white"
+    >
       <defs>
         <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="rgb(255,255,255)" stopOpacity="0.2" />
-          <stop offset="100%" stopColor="rgb(255,255,255)" stopOpacity="0" />
+          <stop offset="0%" stopColor="currentColor" stopOpacity="0.2" />
+          <stop offset="100%" stopColor="currentColor" stopOpacity="0" />
         </linearGradient>
       </defs>
       {isInView && (
@@ -120,7 +124,7 @@ function AnimatedChart() {
           <path
             d={pathD}
             fill="none"
-            stroke="white"
+            stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
             className="draw-line"
@@ -158,12 +162,12 @@ export function BentoGrid() {
           className="text-center mb-16"
         >
           <h2
-            className="text-3xl sm:text-4xl font-bold text-white mb-4"
+            className="text-3xl sm:text-4xl font-bold text-zinc-950 dark:text-white mb-4"
             style={{ fontFamily: "var(--font-geist-sans)" }}
           >
             Everything you need to grow
           </h2>
-          <p className="text-zinc-400 max-w-2xl mx-auto">
+          <p className="text-zinc-600 dark:text-zinc-400 max-w-2xl mx-auto">
             Built for modern teams. Powerful features that help you build,
             deploy, and scale faster than ever.
           </p>
@@ -179,20 +183,20 @@ export function BentoGrid() {
           {/* Large card - System Status */}
           <motion.div
             variants={itemVariants}
-            className="md:col-span-2 group relative p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
+            className="md:col-span-2 group relative p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300 overflow-hidden"
           >
             <div className="flex items-start justify-between mb-8">
               <div>
-                <div className="p-2 rounded-lg bg-zinc-800 w-fit mb-4">
+                <div className="p-2 rounded-lg bg-zinc-200 dark:bg-zinc-800 w-fit mb-4">
                   <Activity
-                    className="w-5 h-5 text-zinc-400"
+                    className="w-5 h-5 text-zinc-600 dark:text-zinc-400"
                     strokeWidth={1.5}
                   />
                 </div>
-                <h3 className="text-xl font-semibold text-white mb-2">
+                <h3 className="text-xl font-semibold text-zinc-950 dark:text-white mb-2">
                   Real-time Monitoring
                 </h3>
-                <p className="text-zinc-400 text-sm">
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm">
                   Track system health, performance metrics, and alerts in
                   real-time across all your deployments.
                 </p>
@@ -202,7 +206,7 @@ export function BentoGrid() {
             <div className="grid grid-cols-4 gap-4">
               {["CPU", "Memory", "Network", "Storage"].map((metric, i) => (
                 <div key={metric} className="text-center">
-                  <div className="text-2xl font-bold text-white mb-1">
+                  <div className="text-2xl font-bold text-zinc-950 dark:text-white mb-1">
                     {metricValues ? `${metricValues[i]}%` : "—"}
                   </div>
                   <div className="text-xs text-zinc-500">{metric}</div>
@@ -214,15 +218,18 @@ export function BentoGrid() {
           {/* Command Palette */}
           <motion.div
             variants={itemVariants}
-            className="group relative p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
+            className="group relative p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
           >
-            <div className="p-2 rounded-lg bg-zinc-800 w-fit mb-4">
-              <Command className="w-5 h-5 text-zinc-400" strokeWidth={1.5} />
+            <div className="p-2 rounded-lg bg-zinc-200 dark:bg-zinc-800 w-fit mb-4">
+              <Command
+                className="w-5 h-5 text-zinc-600 dark:text-zinc-400"
+                strokeWidth={1.5}
+              />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-zinc-950 dark:text-white mb-2">
               Command Palette
             </h3>
-            <p className="text-zinc-400 text-sm mb-6">
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-6">
               Navigate anywhere instantly with powerful keyboard shortcuts.
             </p>
             <KeyboardCommand />
@@ -231,13 +238,18 @@ export function BentoGrid() {
           {/* Analytics */}
           <motion.div
             variants={itemVariants}
-            className="group relative p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
+            className="group relative p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
           >
-            <div className="p-2 rounded-lg bg-zinc-800 w-fit mb-4">
-              <BarChart3 className="w-5 h-5 text-zinc-400" strokeWidth={1.5} />
+            <div className="p-2 rounded-lg bg-zinc-200 dark:bg-zinc-800 w-fit mb-4">
+              <BarChart3
+                className="w-5 h-5 text-zinc-600 dark:text-zinc-400"
+                strokeWidth={1.5}
+              />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">Analytics</h3>
-            <p className="text-zinc-400 text-sm mb-4">
+            <h3 className="text-lg font-semibold text-zinc-950 dark:text-white mb-2">
+              Analytics
+            </h3>
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4">
               Deep insights into your application performance.
             </p>
             <AnimatedChart />
@@ -246,19 +258,22 @@ export function BentoGrid() {
           {/* Performance */}
           <motion.div
             variants={itemVariants}
-            className="group relative p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
+            className="group relative p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
           >
-            <div className="p-2 rounded-lg bg-zinc-800 w-fit mb-4">
-              <Zap className="w-5 h-5 text-zinc-400" strokeWidth={1.5} />
+            <div className="p-2 rounded-lg bg-zinc-200 dark:bg-zinc-800 w-fit mb-4">
+              <Zap
+                className="w-5 h-5 text-zinc-600 dark:text-zinc-400"
+                strokeWidth={1.5}
+              />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-zinc-950 dark:text-white mb-2">
               Blazing Fast
             </h3>
-            <p className="text-zinc-400 text-sm mb-4">
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4">
               Edge-optimized infrastructure for sub-50ms response times
               globally.
             </p>
-            <div className="flex items-center gap-2 text-emerald-500 text-sm">
+            <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-500 text-sm">
               <span className="font-mono">~32ms</span>
               <span className="text-zinc-500">avg response</span>
             </div>
@@ -267,25 +282,28 @@ export function BentoGrid() {
           {/* Security */}
           <motion.div
             variants={itemVariants}
-            className="group relative p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
+            className="group relative p-6 rounded-2xl bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:scale-[1.02] transition-all duration-300"
           >
-            <div className="p-2 rounded-lg bg-zinc-800 w-fit mb-4">
-              <Shield className="w-5 h-5 text-zinc-400" strokeWidth={1.5} />
+            <div className="p-2 rounded-lg bg-zinc-200 dark:bg-zinc-800 w-fit mb-4">
+              <Shield
+                className="w-5 h-5 text-zinc-600 dark:text-zinc-400"
+                strokeWidth={1.5}
+              />
             </div>
-            <h3 className="text-lg font-semibold text-white mb-2">
+            <h3 className="text-lg font-semibold text-zinc-950 dark:text-white mb-2">
               Enterprise Security
             </h3>
-            <p className="text-zinc-400 text-sm mb-4">
+            <p className="text-zinc-600 dark:text-zinc-400 text-sm mb-4">
               SOC2 compliant with end-to-end encryption and SSO support.
             </p>
             <div className="flex items-center gap-2">
-              <span className="px-2 py-1 text-xs bg-zinc-800 rounded text-zinc-400">
+              <span className="px-2 py-1 text-xs bg-zinc-200 dark:bg-zinc-800 rounded text-zinc-600 dark:text-zinc-400">
                 SOC2
               </span>
-              <span className="px-2 py-1 text-xs bg-zinc-800 rounded text-zinc-400">
+              <span className="px-2 py-1 text-xs bg-zinc-200 dark:bg-zinc-800 rounded text-zinc-600 dark:text-zinc-400">
                 GDPR
               </span>
-              <span className="px-2 py-1 text-xs bg-zinc-800 rounded text-zinc-400">
+              <span className="px-2 py-1 text-xs bg-zinc-200 dark:bg-zinc-800 rounded text-zinc-600 dark:text-zinc-400">
                 HIPAA
               </span>
             </div>
