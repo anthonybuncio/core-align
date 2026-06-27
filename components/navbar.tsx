@@ -83,21 +83,23 @@ export function Navbar() {
               <DynamicIcon name="moon" size={18} />
             )}
           </button>
-          <Link href="sign-in">
+          <Link href="/login">
             <Button
               variant="ghost"
               size="sm"
               className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white hover:bg-zinc-200/60 dark:hover:bg-zinc-800 px-4 cursor-pointer"
             >
-              Sign In
+              Login
             </Button>
           </Link>
-          <Button
-            size="sm"
-            className="shimmer-btn bg-zinc-950 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200 rounded-full px-4 cursor-pointer"
-          >
-            Get Started
-          </Button>
+          <Link href="/register">
+            <Button
+              size="sm"
+              className="shimmer-btn bg-zinc-950 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200 rounded-full px-4 cursor-pointer"
+            >
+              Get Started
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -143,15 +145,19 @@ export function Navbar() {
               </a>
             ))}
             <hr className="border-zinc-200 dark:border-zinc-800 my-2" />
-            <Button
-              variant="ghost"
-              className="justify-start text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white"
-            >
-              Sign In
-            </Button>
-            <Button className="shimmer-btn bg-zinc-950 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200 rounded-full">
-              Get Started
-            </Button>
+            <Link href="/login">
+              <Button
+                variant="ghost"
+                className="justify-start text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white"
+              >
+                Login
+              </Button>
+            </Link>
+            <Link href="/register">
+              <Button className="shimmer-btn bg-zinc-950 text-white hover:bg-zinc-800 dark:bg-white dark:text-zinc-950 dark:hover:bg-zinc-200 rounded-full">
+                Get Started
+              </Button>
+            </Link>
           </div>
         </motion.div>
       )}
