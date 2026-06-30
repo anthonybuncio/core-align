@@ -138,7 +138,7 @@ export default function IntegrationsCarousel() {
         >
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-zinc-200 bg-zinc-100 px-4 py-2 dark:border-zinc-800 dark:bg-zinc-900">
             <Grid2X2Plus
-              className="h-3.5 w-3.5 text-zinc-950"
+              className="h-3.5 w-3.5 text-zinc-950 dark:text-zinc-400"
               // fill="currentColor"
               strokeWidth={2}
             />

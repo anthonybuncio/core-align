@@ -51,7 +51,7 @@ const LoginPage = () => {
                   <Button
                     variant="outline"
                     type="button"
-                    className="text-sm font-medium text-zinc-700 hover:text-zinc-950 gap-2 rounded-full h-9 shadow-xs cursor-pointer border-zinc-300 bg-transparent hover:bg-zinc-100 hover:border-zinc-400"
+                    className="text-sm font-medium text-zinc-700 hover:text-zinc-950 gap-2 rounded-full h-9 shadow-xs cursor-pointer border-zinc-300 bg-transparent hover:bg-zinc-100 hover:border-zinc-400 dark:bg-transparent dark:hover:bg-zinc-100"
                   >
                     <img
                       src="https://images.shadcnspace.com/assets/svgs/icon-google.svg"
@@ -63,7 +63,7 @@ const LoginPage = () => {
                   <Button
                     variant="outline"
                     type="button"
-                    className="text-sm font-medium text-zinc-700 hover:text-zinc-950 gap-2 rounded-full h-9 shadow-xs cursor-pointer border-zinc-300 bg-transparent hover:bg-zinc-100 hover:border-zinc-400"
+                    className="text-sm font-medium text-zinc-700 hover:text-zinc-950 gap-2 rounded-full h-9 shadow-xs cursor-pointer border-zinc-300 bg-transparent hover:bg-zinc-100 hover:border-zinc-400 dark:bg-transparent dark:hover:bg-zinc-100"
                   >
                     <img
                       src="https://images.shadcnspace.com/assets/svgs/icon-github.svg"
@@ -90,7 +90,7 @@ const LoginPage = () => {
                       type="email"
                       placeholder="example@shadcnspace.com"
                       required
-                      className="h-9 shadow-xs rounded-lg"
+                      className="h-9 shadow-xs rounded-lg dark:bg-transparent dark:text-zinc-600"
                     />
                   </Field>
                   <Field className="gap-1.5">
@@ -106,7 +106,7 @@ const LoginPage = () => {
                       type="password"
                       placeholder="Enter your password"
                       required
-                      className="h-9 shadow-xs rounded-lg"
+                      className="h-9 shadow-xs rounded-lg dark:bg-transparent dark:text-zinc-600"
                     />
                   </Field>
                 </div>
