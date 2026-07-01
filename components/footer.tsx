@@ -5,10 +5,32 @@ import Image from "next/image";
 import { useRef } from "react";
 
 const footerLinks = {
-  Product: ["Features", "Pricing", "Changelog", "Roadmap", "API"],
-  Resources: ["Documentation", "Guides", "Blog", "Community"],
-  Company: ["About", "Careers", "Press", "Partners", "Contact"],
-  Legal: ["Privacy", "Terms", "Security", "Cookies", "Licenses"],
+  Product: [
+    { label: "Features", href: "/#features" },
+    { label: "Integrations", href: "/#integrations" },
+    { label: "Pricing", href: "/#pricing" },
+    { label: "Roadmap", href: "#" },
+  ],
+  Resources: [
+    { label: "Documentation", href: "#" },
+    { label: "Guides", href: "#" },
+    { label: "Blog", href: "/blog" },
+    { label: "Community", href: "#" },
+  ],
+  Company: [
+    { label: "About", href: "#" },
+    { label: "Careers", href: "#" },
+    { label: "Press", href: "#" },
+    { label: "Partners", href: "#" },
+    { label: "Contact", href: "#" },
+  ],
+  Legal: [
+    { label: "Privacy", href: "#" },
+    { label: "Terms", href: "#" },
+    { label: "Security", href: "#" },
+    { label: "Cookies", href: "#" },
+    { label: "Licenses", href: "#" },
+  ],
 };
 
 export function Footer() {
@@ -57,12 +79,12 @@ export function Footer() {
               </h4>
               <ul className="space-y-3">
                 {links.map((link) => (
-                  <li key={link}>
+                  <li key={link.label}>
                     <a
-                      href="#"
+                      href={link.href}
                       className="text-sm text-zinc-500 hover:text-zinc-950 dark:hover:text-white transition-colors"
                     >
-                      {link}
+                      {link.label}
                     </a>
                   </li>
                 ))}
